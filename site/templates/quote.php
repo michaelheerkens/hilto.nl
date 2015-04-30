@@ -38,7 +38,7 @@ if ($_POST['action'] === 'Verstuur') {
 	'from' => 'No-Reply <michael.heerkens@allblue.nl>',
 	'subject' => 'Offerte aanvraag ' . time(),
 	'body' => $body
-	    ));
+	    ))->send();
 }
 ?>
 <?php snippet('header') ?>
@@ -109,7 +109,7 @@ if ($_POST['action'] === 'Verstuur') {
 			<?php endif ?>
 		    </tbody>
 		</table>
-		<?php if(!$send['status'] == 'success') : ?>
+		<?php if(!$send) : ?>
 		<h3>Stuur mij een persoonlijke offerte voor de producten in mijn offertemandje:</h3>
 		<form method="post" action="<?php echo url('offertemandje') ?>">
 		    <div id="contact-form">

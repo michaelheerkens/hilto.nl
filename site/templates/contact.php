@@ -11,7 +11,7 @@ if ($_POST['action'] === 'Verstuur') {
 	'from' => 'No-Reply <michael.heerkens@allblue.nl>',
 	'subject' => 'Contactformulier ingevuld ' . time(),
 	'body' => $body
-	    ));
+	    ))->send();
 }
 ?>
 <?php snippet('header') ?>
@@ -31,7 +31,7 @@ if ($_POST['action'] === 'Verstuur') {
 	    </article>
 	    <article class="grid_7">
 		<h2 class="ind2">Neem contact op</h2>
-		<?php if(!$send['status'] == 'success') : ?>
+		<?php if(!$send) : ?>
 		<form method="post" action="<?php echo url('contact') ?>">
 		    <div id="contact-form">
 			<fieldset>
