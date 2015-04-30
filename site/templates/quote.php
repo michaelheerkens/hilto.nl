@@ -38,7 +38,7 @@ if ($_POST['action'] === 'Verstuur') {
 	'from' => 'No-Reply <michael.heerkens@allblue.nl>',
 	'subject' => 'Offerte aanvraag ' . time(),
 	'body' => $body
-	    ))->send();
+	    ))->send(array('service' => c::get('email.use'), 'options' => array('key' => c::get('email.postmark.key'))));
 }
 ?>
 <?php snippet('header') ?>
