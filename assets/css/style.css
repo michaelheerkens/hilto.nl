@@ -45,7 +45,7 @@ a {color:#004B91;outline:none; text-decoration:underline; cursor:pointer;}
 .button:hover{ background:;}
 nav a, nav a:hover {text-decoration:none}
 
-input[type="submit"] { background: none !important; border:0px; text-decoration: underline; cursor: pointer; }
+input[type="submit"] { background: none; border:0px; text-decoration: underline; cursor: pointer; }
 
 /*================================>> hovers <<========================================*/
 .jcarousel-skin-tango .jcarousel-item>a{-webkit-transition: all 0.3s ease;-moz-transition: all 0.3s ease;-o-transition: all 0.3s ease;transition: all 0.3s ease;}
@@ -241,11 +241,13 @@ tr.d1 td {
 }
 
 .addToCartButton{
-	background: url('../images/shopping-basket-add.png') no-repeat;
+	background: url('../images/shopping-basket-add.png') no-repeat !important;
 	border: 0px;
 	width: 36px;
 	height: 36px;
 	cursor: pointer;
+	color: transparent;
+	
 }
 
 .razorDeleteCartItem, .razorUpdateCartItem, .cartCount{
