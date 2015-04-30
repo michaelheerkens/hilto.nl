@@ -12,6 +12,9 @@ if ($_POST['action'] === 'Verstuur') {
 	'subject' => 'Contactformulier ingevuld ' . time(),
 	'body' => $body
 	    ))->send(array('service' => c::get('email.use'), 'options' => array('key' => c::get('email.postmark.key'))));
+    
+    if(!$send)
+	echo error($send);
 }
 ?>
 <?php snippet('header') ?>
