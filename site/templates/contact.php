@@ -1,3 +1,19 @@
+<?php
+if ($_POST['action'] === 'Verstuur') {
+    $body = $_POST['txtCompanyname'] . "\n" .
+	    $_POST['txtContact'] . "\n" .
+	    $_POST['txtPhone'] . "\n" .
+	    $_POST['txtEmail'] . "\n" .
+	    $_POST['txtComments'];
+
+    $send = email(array(
+	'to' => 'Michael Heerkens <michael.heerkens@gmail.com>',
+	'from' => 'No-Reply <michael.heerkens@allblue.nl>',
+	'subject' => 'Contactformulier ingevuld ' . time(),
+	'body' => $body
+	    ));
+}
+?>
 <?php snippet('header') ?>
 <?php snippet('menu') ?>
 <section id="content">
@@ -15,25 +31,30 @@
 	    </article>
 	    <article class="grid_7">
 		<h2 class="ind2">Neem contact op</h2>
-
-		<div id="contact-form">
-		    <fieldset>
-			<label class="companyname"><input type="text" name="txtCompanyname" id="txtCompanyname" style="width: 300px;" value="Uw bedrijfsnaam*: " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="contactpersoon"><input type="text" name="txtContact" id="txtContact" style="width: 300px;" value="Contactpersoon*: " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="customercode"><input type="text" name="txtPhone" id="txtPhone" style="width: 300px;" value="Telefoon: " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="email"><input type="text" name="txtEmail" id="txtEmail" style="width: 300px;" value="Uw emailadres*: " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="comments"><textarea name="txtComments" id="txtComments" style="width: 350px; height:150px">Bericht:&nbsp;</textarea></label>
-		    </fieldset>
-		</div>
-		<input type="submit" name="submit" value="Verstuur"/>
+		<?php if(!$send['status'] == 'success') : ?>
+		<form method="post" action="<?php echo url('contact') ?>">
+		    <div id="contact-form">
+			<fieldset>
+			    <label class="companyname"><input type="text" name="txtCompanyname" id="txtCompanyname" style="width: 300px;" value="Uw bedrijfsnaam*: " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="contactpersoon"><input type="text" name="txtContact" id="txtContact" style="width: 300px;" value="Contactpersoon*: " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="customercode"><input type="text" name="txtPhone" id="txtPhone" style="width: 300px;" value="Telefoon: " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="email"><input type="text" name="txtEmail" id="txtEmail" style="width: 300px;" value="Uw emailadres*: " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="comments"><textarea name="txtComments" id="txtComments" style="width: 350px; height:150px">Bericht:&nbsp;</textarea></label>
+			</fieldset>
+		    </div>
+		    <input type="submit" name="action" value="Verstuur"/>
+		</form>
+		<?php else : ?>
+		    <p>Wij hebben uw mail ontvangen en zullen spoedig contact opnemen.</p>
+		<?php endif ?>
 	    </article>
 	</div>
     </div>

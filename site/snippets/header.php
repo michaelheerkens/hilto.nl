@@ -75,7 +75,7 @@
 	    <!--==============================header=================================-->
 	    <div class="main1">
 		<header>
-		    <h1><a class="logo" href="/"><?php echo $site->title()->html() ?></a></h1>
+		    <h1><a class="logo" href="<?php echo $site->homePage()->url() ?>"><?php echo $site->title()->html() ?></a></h1>
 		    <div class="search_box">
 			<div class="f_left">
 			    Zoeken

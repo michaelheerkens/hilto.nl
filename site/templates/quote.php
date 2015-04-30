@@ -4,7 +4,7 @@ $filename = kirby()->roots->cache() . "/quote/$sessionid.txt";
 if (file_exists($filename))
     $arr = json_decode(file_get_contents($filename), true);
 
-if ($_POST['ARTNUMMER']) {
+if (isset($_POST['ARTNUMMER'])) {
     switch ($_POST['action']) {
 	case 'Verwijder':
 	    unset($arr[$_POST['ARTNUMMER']]);
@@ -21,6 +21,24 @@ if ($_POST['ARTNUMMER']) {
 	    break;
     }
     file_put_contents($filename, json_encode($arr));
+}
+?>
+<?php
+if ($_POST['action'] === 'Verstuur') {
+    $var_dump = var_export(json_decode(file_get_contents($filename), true), true);
+    $body = $_POST['txtCompanyname'] . "\n" .
+	    $_POST['txtContact'] . "\n" .
+	    $_POST['txtCustomercode'] . "\n" .
+	    $_POST['txtEmail'] . "\n" .
+	    $_POST['txtComments'] . "\n\n" .
+	    'Aanvraag: ' . $var_dump;
+
+    $send = email(array(
+	'to' => 'Michael Heerkens <michael.heerkens@gmail.com>',
+	'from' => 'No-Reply <michael.heerkens@allblue.nl>',
+	'subject' => 'Offerte aanvraag ' . time(),
+	'body' => $body
+	    ));
 }
 ?>
 <?php snippet('header') ?>
@@ -91,25 +109,31 @@ if ($_POST['ARTNUMMER']) {
 			<?php endif ?>
 		    </tbody>
 		</table>
+		<?php if(!$send['status'] == 'success') : ?>
 		<h3>Stuur mij een persoonlijke offerte voor de producten in mijn offertemandje:</h3>
-		<div id="contact-form">
-		    <fieldset>
-			<label class="companyname"><input type="text" name="txtCompanyname" id="txtCompanyname" style="width: 300px;" value="Uw bedrijfsnaam*: " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="contactpersoon"><input type="text" name="txtContact" id="txtContact" style="width: 300px;" value="Contactpersoon*: " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="customercode"><input type="text" name="txtCustomercode" id="txtCustomercode" style="width: 300px;" value="Klantnr Hilto (optioneel): " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="email"><input type="text" name="txtEmail" id="txtEmail" style="width: 300px;" value="Uw emailadres*: " /></label>
-		    </fieldset>
-		    <fieldset>
-			<label class="comments"><textarea name="txtComments" id="txtComments" style="width: 350px; height:150px">Eventuele opmerkingen:&nbsp;</textarea></label>
-		    </fieldset>
-		</div>
-		<input type="submit" name="submit" value="Verstuur"/>
+		<form method="post" action="<?php echo url('offertemandje') ?>">
+		    <div id="contact-form">
+			<fieldset>
+			    <label class="companyname"><input type="text" name="txtCompanyname" id="txtCompanyname" style="width: 300px;" value="Uw bedrijfsnaam*: " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="contactpersoon"><input type="text" name="txtContact" id="txtContact" style="width: 300px;" value="Contactpersoon*: " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="customercode"><input type="text" name="txtCustomercode" id="txtCustomercode" style="width: 300px;" value="Klantnr Hilto (optioneel): " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="email"><input type="text" name="txtEmail" id="txtEmail" style="width: 300px;" value="Uw emailadres*: " /></label>
+			</fieldset>
+			<fieldset>
+			    <label class="comments"><textarea name="txtComments" id="txtComments" style="width: 350px; height:150px">Eventuele opmerkingen:&nbsp;</textarea></label>
+			</fieldset>
+		    </div>
+		    <input type="submit" name="action" value="Verstuur"/>
+		</form>
+		<?php else : ?>
+		<h3>Dank voor uw aanvraag, wij nemen spoedig contact op</h3>
+		<?php endif ?>
 	    </article>
 	</div>
     </div>

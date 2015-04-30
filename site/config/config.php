@@ -20,7 +20,9 @@ c::set('lang.support', true);
 c::set('lang.default', 'en');
 c::set('lang.available', array('en', 'de'));
 c::set('lang.detect', true);
-
+c::set('email.use', 'postmark');
+c::set('email.postmark.key', 'ac89bdf1-7d2e-46ba-a9a7-5b9cb670fb71');
+//c::set('debug', true);
 /*
 
 ---------------------------------------

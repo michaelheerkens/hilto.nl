@@ -1,12 +1,12 @@
-Title: Kirby Starterkit
+Title: Hilto Technische Handelsonderneming BV
 
 ----
 
-Author: Bastian Allgeier GmbH
+Author: Michael Heerkens
 
 ----
 
-Description: This is Kirby's Starterkit.
+Description: 
 
 ----
 
@@ -14,4 +14,4 @@ Keywords: Kirby,CMS,file-based
 
 ----
 
-Copyright: © 2009-(date: Year) (link: http://getkirby.com text: Kirby)
+Copyright: © 2009-(date: Year) (link: http://www.hilto.nl text: Hilto.nl)
