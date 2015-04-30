@@ -2,18 +2,14 @@ Title: Contact
 
 ----
 
-Text:
+Text: 
 
-## Get in touch
+**Hilto Technische Handelsonderneming**
 
-- (link: http://getkirby.com/support text: Kirby's support page)
-- (link: http://getkirby.com/forum text: Kirby's forum)
-- (link: http://github.com/getkirby text: Kirby on Github)
-- <support@getkirby.com>
+Van Utrechtweg 29
+2921LN Krimpen aan den IJssel 
 
-## Follow us on Twitter
+Tel. 0180 - 55 14 60
+Fax 0180 - 51 87 11
 
-- Follow Kirby on Twitter (twitter: @getkirby)
-- Follow Bastian on Twitter (twitter: @bastianallgeier)
-- Follow Sascha on Twitter (twitter: @sashtown)
-
+(email: info@hilto.nl text: info@hilto.nl)

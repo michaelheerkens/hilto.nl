@@ -76,4 +76,4 @@ or send us an email: <support@getkirby.com>
 ## Copyright
 
 © 2009-2014 Bastian Allgeier (Bastian Allgeier GmbH)
-<http://getkirby.com>
+<http://getkirby.com># hilto.nl

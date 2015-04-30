@@ -16,6 +16,10 @@ for more information: http://getkirby.com/license
 */
 
 c::set('license', 'put your license key here');
+c::set('lang.support', true);
+c::set('lang.default', 'en');
+c::set('lang.available', array('en', 'de'));
+c::set('lang.detect', true);
 
 /*
 
