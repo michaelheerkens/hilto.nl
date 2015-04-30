@@ -1,0 +1,43 @@
+nav{ position:relative; margin: 0px 0 10px -14px;width:1058px; background:url(../images/item5.png) repeat-x #2d2d2d; min-height:68px;  border-top:1px solid #4e4e4e;}
+.sf-menu{ position:relative;}
+.sf-menu ul {position:absolute;top:-999px; display:none;/* left offset of submenus need to match (see below) */}
+.sf-menu ul li {width:100%;}
+.sf-menu li {float:left; position:relative;width:200px;}
+.sf-menu>li>a{display:block;font-size: 22px; line-height: 26px; color:#fff; font-style:italic;padding:24px 0px 17px 0px;text-align:center; background:url(../images/nav_a.jpg) right 0 no-repeat; position:relative; }
+.sf-menu>li>a>span{font-size: 13px; line-height: 16px; color:#c4c4c4; font-family:Arial, Helvetica, sans-serif; display:inline-block;margin: 0 0 0 0; font-style:normal;}
+.sf-menu>li.active1, .sf-menu>li.active>a,.sf-menu>li>a:hover,.sf-menu>li.current>a,.sf-menu>li.sfHover>a{ background:url(../images/nav_a2.jpg) repeat-x;}
+
+.sf-menu>li.active1>a>span,.sf-menu>li.active>a>span{ color:#7b7b7b;}
+.sf-menu>li:hover>a:after,.sf-menu>li.active>a:after,.sf-menu>li.sfHover>a:after{ display:block; position:absolute;width:30px;height:67px; right:-30px; top:0; z-index:999; background:url(../images/nav_a_right.png) no-repeat; content:"";}
+
+.sf-menu .item1{width:200px;}
+.sf-menu .item1 a{ padding-left:12px;}
+.sf-menu .item2{width:233px;}
+.sf-menu .item2 a{ padding-left:18px;}
+.sf-menu .item3{width:203px;}
+.sf-menu .item4{width:203px;}
+.sf-menu .item5{width:217px;}
+.sf-menu .item5 a{ background:none; overflow:hidden;}
+.sf-menu>li.item5:hover a:after, .sf-menu>li.active1:hover a:after{ background:none;}
+
+.nav_right{ background:url(../images/nav_right.png) no-repeat;width:17px;height:18px; right:0; bottom:-17px;}
+.nav_left{ background:url(../images/nav_left.png) no-repeat;width:14px;height:12px; left:0px; top:-13px;}
+.nav_left, .nav_right{ position:absolute; z-index:999; cursor:pointer;}
+
+/*================================>> 2 Level <<========================================*/
+.sf-menu>li>ul,.sf-menu>li.sfHover>ul{left:37px;top:93px;width: 188px;padding:42px 0 0 0;/* match top ul list item height */z-index:99; background:#FFF; box-shadow:0 1px 3px rgba(0,0,0,0.60);}
+.sf-menu>li>ul>li{ margin-bottom:-1px;}
+.sf-menu li ul li a{font-size: 20px; line-height: 24px; color:#1c1c1c; display:block; font-style:italic; padding:5px 0 12px 18px; letter-spacing:-1px; background:url(../images/sub_ul_li.jpg) 50% bottom no-repeat;}
+.sf-menu li li a:hover, .sf-menu li.sfHover li.sfHover>a{ background:#e6e6e6;}
+.sf-menu .bg_none{ background:none;}
+.top_bg{ background:url(../images/sub_ul_top.jpg) no-repeat; display:block;width:188px;height:38px; top:-40px; left:0; position:absolute; z-index:999;}
+/*================================>> 3 Level <<========================================*/
+.sf-menu li li ul{left:190px;top:0px;width: 188px;padding:0 0 0 0;/* match top ul list item height */z-index:99; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.60);}
+.sf-menu li li li{}
+.sf-menu li li li a{ padding-bottom:11px;}
+.sf-menu li li li a:hover{ background:#111314; color:#FFF;}
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
