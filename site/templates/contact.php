@@ -13,6 +13,7 @@ if ($_POST['action'] === 'Verstuur') {
 	'body' => $body
 	    ))->send(array('service' => c::get('email.use'), 'options' => array('key' => c::get('email.postmark.key'))));
 }
+echo 'test';
 print_r($send);
 ?>
 <?php snippet('header') ?>
