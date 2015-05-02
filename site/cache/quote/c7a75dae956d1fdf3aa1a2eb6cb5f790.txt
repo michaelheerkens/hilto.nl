@@ -1,1 +1,1 @@
-{"01-090Z-1\/2":{"ARTFAK_OM":"EE knie bi\/bi verlopend","ART_PRI_V":"2.80 ","QUANTITY":1},"01-001Z-1\/4":{"ARTFAK_OM":"EE bocht bi\/bu (Z=zwart)","ART_PRI_V":"2.25 ","QUANTITY":1}}
+{"01-090Z-1\/2":{"ARTFAK_OM":"EE knie bi\/bi verlopend","ART_PRI_V":"2.80 ","QUANTITY":1},"01-001Z-1\/4":{"ARTFAK_OM":"EE bocht bi\/bu (Z=zwart)","ART_PRI_V":"2.25 ","QUANTITY":1},"01-130Z-2.1\/2":{"ARTFAK_OM":"EE T-sok","ART_PRI_V":"26.25 ","QUANTITY":1}}

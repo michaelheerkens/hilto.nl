@@ -1,6 +1,19 @@
 <?php snippet('header') ?>
 <?php snippet('menu') ?>
-
+<?php
+$pricelist = '';
+$pricelistUrl = '';
+$infoFiles = array();
+foreach ($page->files() as $file) {
+    if ($file->extension() === 'csv') {
+	$pricelist = $file->dir() . '/' . $file->filename();
+	$pricelistUrl = $file->url();
+	break;
+    } else {
+	$infoFiles[] = $file->url();;
+    }
+}
+?>
 <section id="content">
     <div class="container_12">
 	<div class="wrapper">
@@ -14,6 +27,10 @@
 		    <?php endforeach ?>
 		</h4>
 		<h2 class="ind2">Producten</h2>
+		<h3><a href="<?php echo $pricelistUrl?>">Download prijslijst</a></h3>
+		<?php foreach ($infoFiles as $if) : ?>
+		<h3><a target="_blank" href="<?php echo $if ?>">Download info bestand</a></h3>
+		<?php endforeach ?>
 		<ul id="categories">
 		    <?php foreach ($page->children() as $p): ?>
     		    <li>
@@ -29,13 +46,6 @@
 		</ul>
 
 		<?php
-		$pricelist = '';
-		foreach ($page->files() as $file) {
-		    if ($file->extension() === 'csv') {
-			$pricelist = $file->dir() . '/' . $file->filename();
-			break;
-		    }
-		}
 		$row = 0;
 		$priceArr = array();
 		if (($handle = fopen($pricelist, "r")) !== FALSE) {
