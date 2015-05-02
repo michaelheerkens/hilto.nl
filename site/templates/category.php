@@ -27,10 +27,6 @@ foreach ($page->files() as $file) {
 		    <?php endforeach ?>
 		</h4>
 		<h2 class="ind2">Producten</h2>
-		<h3><a href="<?php echo $pricelistUrl?>">Download prijslijst</a></h3>
-		<?php foreach ($infoFiles as $if) : ?>
-		<h3><a target="_blank" href="<?php echo $if ?>">Download info bestand</a></h3>
-		<?php endforeach ?>
 		<ul id="categories">
 		    <?php foreach ($page->children() as $p): ?>
     		    <li>
@@ -61,6 +57,10 @@ foreach ($page->files() as $file) {
 		}
 		?>
 		<?php if (count($priceArr) > 0) : ?>
+		<h3><a href="<?php echo $pricelistUrl?>">Download prijslijst</a></h3>
+		<?php foreach ($infoFiles as $if) : ?>
+		<h3><a target="_blank" href="<?php echo $if ?>">Download info bestand</a></h3>
+		<?php endforeach ?>
     		<div id="scrollingDiv" style="position:absolute;"></div>
     		<fieldset style="padding-bottom:6px;">
     		    <legend style="float: left; ">Filteren: </legend><input id="searchInput" value=""></fieldset>
