@@ -1,6 +1,7 @@
 <?php
 $sessionid = session_id();
 $filename = kirby()->roots->cache() . "/quote/$sessionid.txt";
+$send = false;
 if (file_exists($filename))
     $arr = json_decode(file_get_contents($filename), true);
 
@@ -44,7 +45,7 @@ if ($_POST['action'] === 'Verstuur') {
 		)
 	    ));
 
-    if (!$email->send())
+    if (!$send = $email->send())
 	echo $email->error()->message();
 }
 ?>
