@@ -92,7 +92,8 @@
 			    <?php
 			    $sessionid = session_id();
 			    $filename = kirby()->roots->cache() . "/quote/$sessionid.txt";
-			    $arr = json_decode(file_get_contents($filename), true);
+			    if(file_exists($filename))
+				$arr = json_decode(file_get_contents($filename), true);
 			    ?>
 			    <?php if(!$arr) : ?>
 				Uw offertemandje is leeg

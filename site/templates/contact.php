@@ -1,5 +1,5 @@
 <?php
-if ($_POST['action'] === 'Verstuur') {
+if (isset($_POST['action']) && $_POST['action'] === 'Verstuur') {
     $body = $_POST['txtCompanyname'] . "\n" .
 	    $_POST['txtContact'] . "\n" .
 	    $_POST['txtPhone'] . "\n" .
@@ -17,7 +17,7 @@ if ($_POST['action'] === 'Verstuur') {
 		)
 	    ));
 
-    if (!$email->send())
+    if (!$send = $email->send())
 	echo $email->error()->message();
 }
 ?>
