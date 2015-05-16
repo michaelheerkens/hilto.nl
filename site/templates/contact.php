@@ -14,7 +14,8 @@ if (isset($_POST['action']) && $_POST['action'] === 'Verstuur') {
 		'body' => $body,
 		'service' => c::get('email.use'),
 		'options' => array(
-		    'key' => c::get('email.postmark.key')
+		    'key' => c::get('email.mailgun.key'),
+		    'domain' => c::get('email.mailgun.key')
 		)
 	    ));
 
