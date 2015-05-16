@@ -1,4 +1,5 @@
 <?php
+$send = false;
 if (isset($_POST['action']) && $_POST['action'] === 'Verstuur') {
     $body = $_POST['txtCompanyname'] . "\n" .
 	    $_POST['txtContact'] . "\n" .
