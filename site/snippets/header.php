@@ -87,21 +87,5 @@
 			    </form>
 			</div>
 		    </div>
-		    <div id="cartcount">
-			<a href="<?php echo url('offertemandje')?>">
-			    <?php
-			    $sessionid = session_id();
-			    $filename = kirby()->roots->cache() . "/quote/$sessionid.txt";
-			    $arr = array();
-			    if(file_exists($filename))
-				$arr = json_decode(file_get_contents($filename), true);
-			    ?>
-			    <?php if(!$arr) : ?>
-				Uw offertemandje is leeg
-			    <?php else : ?>
-				<?php echo count($arr) ?> item(s) in uw offertemandje
-			    <?php endif ?>
-			</a>
-		    </div>
 		</header>
 		<div class="white_block">
