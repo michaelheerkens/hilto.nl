@@ -13,6 +13,7 @@ foreach ($page->files() as $file) {
 	$infoFiles[] = $file->url();;
     }
 }
+print_r($page->files());
 ?>
 <section id="content">
     <div class="container_12">
