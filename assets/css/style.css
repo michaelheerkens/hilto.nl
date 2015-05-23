@@ -277,5 +277,6 @@ tr.d1 td {
 .thumb{
     clip: rect(0px 190px 190px 0px);
     height: 197px;
+    width: 190px;
 }
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
