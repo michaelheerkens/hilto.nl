@@ -72,12 +72,15 @@ foreach ($page->files() as $file) {
 				    <td style="width:300px"><?php echo $priceItem['ARTFAK_OM'] ?></td>
 				    <td style="width:150px">€ <?php echo $priceItem['ART_PRI_V'] ?></td>
 				    <td style="width:150px">
+					<?php /*
 					<form method="post" action="<?php echo url('offertemandje') ?>">
 					    <input type="submit" class="addToCartButton" id="add_XXX" value="Submit">
 					    <input type="hidden" name="ARTNUMMER" value="<?php echo $priceItem['ARTNUMMER'] ?>" />
 					    <input type="hidden" name="ARTFAK_OM" value="<?php echo $priceItem['ARTFAK_OM'] ?>" />
 					    <input type="hidden" name="ART_PRI_V" value="<?php echo $priceItem['ART_PRI_V'] ?>" />
 					</form>
+					 */
+					?>
 				    </td>
 				</tr>
 			    <?php endforeach ?>
