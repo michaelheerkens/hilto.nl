@@ -274,33 +274,8 @@ tr.d1 td {
 
 #scrollingDiv a { color: #004B91; text-decoration: underline; cursor: pointer;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.thumb{
+    clip: rect(0px 190px 190px 0px);
+    height: 197px;
+}
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

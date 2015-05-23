@@ -32,7 +32,7 @@ foreach ($page->files() as $file) {
     			<a href="<?php echo $p->url() ?>">
     			    <div>
 				    <?php if ($image = $p->image()): ?>
-					<img src="<?php echo $image->url() ?>">
+					<img class="thumb" src="<?php echo $image->url() ?>">
 					<br>
 				    <?php endif ?>
     				<span class="box"><strong><?php echo $p->title()->html() ?></strong></span>
