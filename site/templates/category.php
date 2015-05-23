@@ -45,10 +45,10 @@ foreach ($page->files() as $file) {
 		$priceArr = array();
 		if (($handle = fopen($pricelist, "r")) !== FALSE) {
 		    while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-			if ($data[2] > 0) {
+			if ($row >0 ) {
 			    $priceArr[$row]['ARTNUMMER'] = $data[0];
 			    $priceArr[$row]['ARTFAK_OM'] = $data[1];
-			    $priceArr[$row]['ART_PRI_V'] = $data[2];
+			    $priceArr[$row]['ART_PRI_V'] = (string)$data[2];
 			}
 			$row++;
 		    }
