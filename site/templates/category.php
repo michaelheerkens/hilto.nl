@@ -8,12 +8,10 @@ foreach ($page->files() as $file) {
     if ($file->extension() === 'csv') {
 	$pricelist = $file->dir() . '/' . $file->filename();
 	$pricelistUrl = $file->url();
-	break;
     } else {
 	$infoFiles[] = $file->url();;
     }
 }
-var_dump($infoFiles);
 ?>
 <section id="content">
     <div class="container_12">
