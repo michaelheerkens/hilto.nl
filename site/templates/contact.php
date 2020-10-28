@@ -1,28 +1,45 @@
 <?php
 $send = false;
-if (isset($_POST['action']) && $_POST['action'] === 'Verstuur') {
-    $body = $_POST['txtCompanyname'] . "\n" .
-	    $_POST['txtContact'] . "\n" .
-	    $_POST['txtPhone'] . "\n" .
-	    $_POST['txtEmail'] . "\n" .
-	    $_POST['txtComments'];
 
-    $email = New Email(array(
-		'to' => 'Michael Heerkens <michael.heerkens@gmail.com>',
-		'from' => 'No-Reply <michael.heerkens@allblue.nl>',
-		'subject' => 'Contactformulier ingevuld ' . time(),
-		'body' => $body,
-		'service' => c::get('email.use'),
-		'options' => array(
-		    'key' => c::get('email.postmark.key'),
-		)
-	    ));
+if($_POST) {
+    $data = array(
+      'secret' => "6LetjtwZAAAAAEsIKs4-8tBhMb2mfj_v_MEGDwW8",
+      'response' => $_POST['g-recaptcha-response']
+    );
 
-    if (!$send = $email->send())
-	echo $email->error()->message();
+    $verify = curl_init();
+    curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+    curl_setopt($verify, CURLOPT_POST, true);
+    curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+    $response = json_decode(curl_exec($verify), true);
+
+    if (isset($_POST) && isset($_POST['g-recaptcha-response']) && $response['success'] === true) {
+        $body = $_POST['txtCompanyname'] . "\n" .
+    	    $_POST['txtContact'] . "\n" .
+    	    $_POST['txtPhone'] . "\n" .
+    	    $_POST['txtEmail'] . "\n" .
+    	    $_POST['txtComments'];
+
+        $email = New Email(array(
+    		'to' => 'Michael Heerkens <michael.heerkens@gmail.com>',
+    		'from' => 'No-Reply <michael.heerkens@allblue.nl>',
+    		'subject' => 'Contactformulier ingevuld ' . time(),
+    		'body' => $body,
+    		'service' => c::get('email.use'),
+    		'options' => array(
+    		    'key' => c::get('email.postmark.key'),
+    		)
+    	    ));
+
+        if (!$send = $email->send())
+	         echo $email->error()->message();
+         }
 }
 ?>
 <?php snippet('header') ?>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <?php snippet('menu') ?>
 <section id="content">
     <div class="container_12">
@@ -40,7 +57,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'Verstuur') {
 	    <article class="grid_7">
 		<h2 class="ind2">Neem contact op</h2>
 		<?php if (!$send) : ?>
-    		<form method="post" action="<?php echo url('contact') ?>">
+    		<form method="post" action="<?php echo url('contact') ?>" id="contactform">
     		    <div id="contact-form">
     			<fieldset>
     			    <label class="companyname"><input type="text" name="txtCompanyname" id="txtCompanyname" style="width: 300px;" value="Uw bedrijfsnaam*: " /></label>
@@ -57,8 +74,8 @@ if (isset($_POST['action']) && $_POST['action'] === 'Verstuur') {
     			<fieldset>
     			    <label class="comments"><textarea name="txtComments" id="txtComments" style="width: 350px; height:150px">Bericht:&nbsp;</textarea></label>
     			</fieldset>
-    		    </div>
-    		    <input type="submit" name="action" value="Verstuur"/>
+        </div><br>
+            <button class="g-recaptcha" data-sitekey="6LetjtwZAAAAAA8tuajqr4nowIIgyBSSgr0i5Jpc" data-callback='onSubmit' data-action='submit'>Verstuur nu</button>
     		</form>
 		<?php else : ?>
     		<p>Wij hebben uw mail ontvangen en zullen spoedig contact opnemen.</p>
@@ -67,4 +84,9 @@ if (isset($_POST['action']) && $_POST['action'] === 'Verstuur') {
 	</div>
     </div>
 </section>
+<script>
+   function onSubmit(token) {
+     document.getElementById("contactform").submit();
+   }
+ </script>
 <?php snippet('footer') ?>
